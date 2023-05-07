@@ -27,7 +27,14 @@
       </div>
 
       <div class="w-full py-8">
-        <prediction-table />
+        <Suspense>
+          <prediction-table />
+          <template #fallback>
+            <div class="w-full flex justify-center items-center">
+              <AppLoading />
+            </div>
+          </template>
+        </Suspense>
       </div>
 
       <div class="py-8 bg-blue-400 px-4 rounded-t-xl mt-12">
@@ -59,13 +66,15 @@
 import NavbarSection from '@/components/NavbarSection.vue'
 import PredictionTable from '@/components/PredictionTable.vue'
 import AppFooter from '@/components/AppFooter.vue'
+import AppLoading from '@/components/AppLoading.vue'
 
 export default {
   name: 'App',
   components: {
     NavbarSection,
     PredictionTable,
-    AppFooter
+    AppFooter,
+    AppLoading
   }
 }
 </script>
