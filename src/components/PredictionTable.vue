@@ -80,8 +80,6 @@ const getTips = async (db) => {
   const tipsSnapshot = await getDocs(tipsCol);
   let tips = tipsSnapshot.docs.map(doc => doc.data());
   tips = tips.sort((a, b) => (new Date(a.startAt)) > (new Date(b.startAt)) ? 1 : -1)
-  console.log(tips, "tips")
-  groupByDate(tips);
 
   predictions.value = tips.filter(tip => {
     const objDate = new Date(tip.startAt);
@@ -89,6 +87,10 @@ const getTips = async (db) => {
       objDate.getMonth() === today.value.getMonth() &&
       objDate.getFullYear() === today.value.getFullYear();
   });
+  
+  const predictionIds = predictions.value.map(i => i.fixtureId);
+
+  groupByDate(tips.filter(i => !predictionIds.includes(i.fixtureId)));
 }
 
 const refreshTips = async (number) => {
