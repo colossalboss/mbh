@@ -2,8 +2,8 @@
   <div class="py-3 py-0">
     <div class="w-full">
       <div class="w-full py-4">
-        <a @click="refreshTips(-1)" class="font-semibold text-lg text-regalblue cursor-pointer" v-if="isToday">Yesterday Predictions</a>
-        <a @click="refreshTips(1)" class="font-semibold text-lg text-regalblue cursor-pointer" v-else>Today's Predictions</a>
+        <a @click="refreshTips(1)" class="font-semibold text-lg text-regalblue cursor-pointer">Today's
+          Predictions</a>
       </div>
       <div class="sm:hidden md:block" id="theader">
         <predictions-header />
@@ -12,14 +12,32 @@
         <h1 class="font-bold text-lg text-regalble">Matches</h1>
       </div>
 
-      <div v-if="filteredTips && filteredTips.length > 0" >
+      <div v-if="filteredTips && filteredTips.length > 0">
         <div v-for="prediction of filteredTips" :key="prediction.id" class="push-down sm:mb-8 md:mb-0">
-        <prediction-row :prediction="prediction" />
-      </div>
+          <prediction-row :prediction="prediction" />
+        </div>
       </div>
       <div v-else>
         <div class="w-full">
           <p class="font-semibold text-sm text-center py-8">No records found</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full my-8" v-for="(tip) of oldTips" :key="tip">
+      <div class="w-full py-4">
+        <a @click="refreshTips(1)" class="font-semibold text-lg text-regalblue cursor-pointer">{{ (`${new Date(tip[0].startAt)}`).substring(0, 15)  }}</a>
+      </div>
+      <div class="sm:hidden md:block" id="theader">
+        <predictions-header />
+      </div>
+      <div class="sm:block md:hidden" id="hide-sm">
+        <h1 class="font-bold text-lg text-regalble">Matches</h1>{{ tip }}
+      </div>
+
+      <div>
+        <div v-for="prediction of tip" :key="prediction.id" class="push-down sm:mb-8 md:mb-0">
+          <prediction-row :prediction="prediction" />
         </div>
       </div>
     </div>
@@ -34,14 +52,36 @@ import { db, collection, getDocs } from '@/firebase/init'
 import { computed, ref } from 'vue';
 
 let predictions = ref([]);
+let oldDates = ref([]);
+let oldTips = ref({});
 
 const today = ref(new Date());
 const isToday = ref(true)
 
+const groupByDate = (tips) => {
+  const groupedTips = {};
+  for (let tip of tips) {
+    const tipDate = new Date(tip.startAt).getDate();
+    const tipMonth = new Date(tip.startAt).getMonth();
+    const tipYear = new Date(tip.startAt).getFullYear();
+    const date = `${tipDate}-${tipMonth}-${tipYear}`;
+
+    if (!groupedTips[date]) {
+      groupedTips[date] = tips.filter(i => (new Date(i.startAt).getDate() == tipDate) && (new Date(i.startAt).getMonth() == tipMonth) && (new Date(i.startAt).getFullYear() == tipYear));
+    }
+  }
+
+  oldTips.value = groupedTips;
+  oldDates.value = Object.keys(groupedTips);
+}
+
 const getTips = async (db) => {
   const tipsCol = collection(db, 'tip');
   const tipsSnapshot = await getDocs(tipsCol);
-  const tips = tipsSnapshot.docs.map(doc => doc.data());
+  let tips = tipsSnapshot.docs.map(doc => doc.data());
+  tips = tips.sort((a, b) => (new Date(a.startAt)) > (new Date(b.startAt)) ? 1 : -1)
+  console.log(tips, "tips")
+  groupByDate(tips);
 
   predictions.value = tips.filter(tip => {
     const objDate = new Date(tip.startAt);

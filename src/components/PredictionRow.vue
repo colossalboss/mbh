@@ -2,7 +2,7 @@
     <div class="md:flex p-0 m-0">
         <div class="md:w-2/12 sm:flex justify-between p-4 md:bg-regalblue">
             <span class="font-bold md:hidden">Time: &nbsp;</span>
-            <a href="#" class="text-sm md:text-white">{{new Date( prediction.startAt).toLocaleDateString() }} {{ new Date(prediction.startAt).toLocaleTimeString().substring(0, 5) }}</a>
+            <a href="#" class="text-sm md:text-white">{{new Date( prediction.startAt).toLocaleDateString() }} {{ new Date(prediction.startAt).toLocaleTimeString().substring(0, 4) }}</a>
         </div>
         <div class="md:w-5/12  sm:flex justify-between border p-4">
             <span class="font-bold md:hidden">Fixture: &nbsp;</span>
