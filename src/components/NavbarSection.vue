@@ -1,8 +1,13 @@
 <template>
     <div class="py-4 bg-regalblue">
         <div class="w-full flex justify-between items-center pr-4">
-            <a href="#" class="p-4 text-lg font-bold text-white" style="font-size: 28px;">MyBetHaven</a>
-            <div class="flex">
+            <router-link to="/" class="p-4 text-lg font-bold text-white" style="font-size: 28px;">MyBetHaven</router-link>
+            <div class="flex items-center">
+                <!-- Instagram -->
+                <router-link to="/history" class="text-white flex items-center font-semibold text-lg p-2 mx-1 justify-center ">
+                    History
+                </router-link>
+
                 <!-- Instagram -->
                 <a href="#" class="bg-white flex items-center mx-1 justify-center rounded" style="height: 25px;width: 24px">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

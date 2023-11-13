@@ -1,6 +1,6 @@
 <template>
   <div class="py-3 py-0">
-    <div class="w-full">
+    <div class="w-full" v-if="!isHistoryPage">
       <div class="w-full py-4">
         <a @click="refreshTips(1)" class="font-semibold text-lg text-regalblue cursor-pointer">Today's
           Predictions</a>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="w-full my-8" v-for="(tip) of oldTips" :key="tip">
-      <div class="w-full py-4">
+      <div class="w-full py-4 flex items-left">
         <a @click="refreshTips(1)" class="font-semibold text-lg text-regalblue cursor-pointer">{{ (`${new Date(tip[0].startAt)}`).substring(0, 15)  }}</a>
       </div>
       <div class="sm:hidden md:block" id="theader">
@@ -48,8 +48,12 @@
 import PredictionsHeader from '@/components/PredictionsHeader.vue'
 import PredictionRow from '@/components/PredictionRow.vue'
 import { db, collection, getDocs } from '@/firebase/init'
-
 import { computed, ref } from 'vue';
+import { useRoute } from 'vue-router'
+
+const route = useRoute();
+
+const isHistoryPage = route.path === "/history";
 
 let predictions = ref([]);
 let oldDates = ref([]);
@@ -87,7 +91,7 @@ const getTips = async (db) => {
       objDate.getMonth() === today.value.getMonth() &&
       objDate.getFullYear() === today.value.getFullYear();
   });
-  
+
   const predictionIds = predictions.value.map(i => i.fixtureId);
 
   groupByDate(tips.filter(i => !predictionIds.includes(i.fixtureId)));
