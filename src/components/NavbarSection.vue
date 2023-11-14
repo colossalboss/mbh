@@ -4,6 +4,11 @@
             <router-link to="/" class="p-4 text-lg font-bold text-white" style="font-size: 28px;">MyBetHaven</router-link>
             <div class="flex items-center">
                 <!-- Instagram -->
+                <router-link to="/news" class="text-white flex items-center font-semibold text-lg p-2 mx-1 justify-center ">
+                    News
+                </router-link>
+
+                <!-- Instagram -->
                 <router-link to="/history" class="text-white flex items-center font-semibold text-lg p-2 mx-1 justify-center ">
                     History
                 </router-link>
