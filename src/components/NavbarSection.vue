@@ -5,7 +5,7 @@
             <div class="flex items-center">
                 <!-- Instagram -->
                 <router-link to="/news" class="text-white flex items-center font-semibold text-lg p-2 mx-1 justify-center ">
-                    News
+                    Football News
                 </router-link>
 
                 <!-- Instagram -->
