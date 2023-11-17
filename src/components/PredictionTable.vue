@@ -44,7 +44,7 @@
     </div>
 
     <div class="w-full my-8" v-for="(tip) of oldTips" :key="tip">
-      <div class="w-full py-4 flex items-left">
+      <div class="w-full py-4 md:flex md:items-left">
         <a @click="refreshTips(1)" class="font-semibold text-lg text-regalblue cursor-pointer">{{ (`${new
           Date(tip[0].startAt)}`).substring(0, 15) }}</a>
       </div>
@@ -52,7 +52,7 @@
         <predictions-header />
       </div>
       <div class="sm:block md:hidden" id="hide-sm">
-        <h1 class="font-bold text-lg text-regalble">Matches</h1>{{ tip }}
+        <h1 class="font-bold text-lg text-regalble">Matches</h1>
       </div>
 
       <div>
@@ -136,7 +136,6 @@ const getTips = async (db) => {
   const tipsCol = collection(db, 'tip');
   const tipsSnapshot = await getDocs(tipsCol);
   let tips = tipsSnapshot.docs.map(doc => doc.data());
-  console.log(tips);
   tips = tips.sort((a, b) => (new Date(a.startAt)) > (new Date(b.startAt)) ? 1 : -1)
 
   predictions.value = tips.filter(tip => {
