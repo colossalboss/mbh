@@ -18,8 +18,13 @@
         </div>
       </div>
       <div v-else>
-        <div class="w-full">
+        <div class="w-full" v-if="!manualTips || manualTips.length === 0">
           <p class="font-semibold text-sm text-center py-8">No records found</p>
+        </div>
+        <div class="w-full" v-else>
+          <div v-for="prediction of manualTips" :key="prediction.id" class="push-down sm:mb-8 md:mb-0">
+            <prediction-row :prediction="prediction" />
+          </div>
         </div>
       </div>
     </div>
@@ -70,6 +75,39 @@ const route = useRoute();
 
 const isHistoryPage = route.path === "/history";
 
+const manualTips = [
+  {
+    id: 2,
+    startAt: '2023-11-17T16:00:00+00:00',
+    awayTeamName: "Cyprus U21 vs Bosnia",
+    homeTeamName: "Herzegovina U21",
+    bet: '1',
+    odd: '1.91',
+    score: '',
+    outcome: ''
+  },
+  {
+    id: 3,
+    startAt: '2023-11-17T17:00:00+00:00',
+    awayTeamName: "Norway U21",
+    homeTeamName: "Ireland U21",
+    bet: '1',
+    odd: '1.61',
+    score: '',
+    outcome: ''
+  },
+  {
+    id: 4,
+    startAt: '2023-11-17T17:30:00+00:00',
+    awayTeamName: "Austria U21",
+    homeTeamName: "France U21",
+    bet: '2',
+    odd: '1.59',
+    score: '',
+    outcome: ''
+  }
+]
+
 let predictions = ref([]);
 let oldDates = ref([]);
 let oldTips = ref({});
@@ -98,6 +136,7 @@ const getTips = async (db) => {
   const tipsCol = collection(db, 'tip');
   const tipsSnapshot = await getDocs(tipsCol);
   let tips = tipsSnapshot.docs.map(doc => doc.data());
+  console.log(tips);
   tips = tips.sort((a, b) => (new Date(a.startAt)) > (new Date(b.startAt)) ? 1 : -1)
 
   predictions.value = tips.filter(tip => {
