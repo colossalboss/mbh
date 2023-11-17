@@ -10,7 +10,7 @@
         </div>
         <div class="md:w-2/12  sm:flex justify-between border p-4 md:block text-center">
             <span class="font-bold md:hidden">Bet: &nbsp;</span>
-            <a href="#" class="text-sm text-center"><span>{{ prediction.betCategory }}</span><br><span>{{ prediction.bet }}</span></a>
+            <a href="#" class="text-sm flex items-center justify-center text-center"><span>{{ prediction.betCategory }}</span><br><span>{{ prediction.bet }}</span></a>
         </div>
         <div class="md:w-1/12  sm:flex justify-between border p-4 md:block text-center ">
             <span class="font-bold md:hidden">Odd: &nbsp;</span>

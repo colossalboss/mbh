@@ -66,7 +66,7 @@ const getFirstDayOfMonth = () => {
 const articles = ref([ ]);
 const getNews = async () => {
     try {
-        const {data, status} = await axios.get("https://newsapi.org/v2/everything?apiKey=XXXXXXX&q=EPL");
+        const {data, status} = await axios.get("https://newsapi.org/v2/everything?apiKey=84776bf056dd46c8b502b179ae815c1f&q=EPL");
         console.log(data, "DATA")
         if (status === 200) {
             const currentDate = getFirstDayOfMonth();
