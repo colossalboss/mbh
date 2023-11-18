@@ -68,7 +68,7 @@ const getFirstDayOfMonth = () => {
 const articles = ref([]);
 const getNews = async () => {
     try {
-        const { data, status } = await axios.get("https://newsapi.org/v2/everything?apiKey=XXXXXXXXXXX=EPL");
+        const { data, status } = await axios.get("https://newsapi.org/v2/everything?apiKey=XXXXXXXXX=EPL");
         if (status === 200) {
             const currentDate = getFirstDayOfMonth();
             articles.value = data.articles.filter(i => new Date(i.publishedAt) > new Date(currentDate));

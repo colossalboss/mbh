@@ -77,32 +77,42 @@ const isHistoryPage = route.path === "/history";
 
 const manualTips = [
   {
+    id: 4,
+    startAt: '2023-11-18T12:00:00+00:00',
+    awayTeamName: "VSK Aarhus (DEN Division 3)",
+    homeTeamName: "Holstebro BK",
+    bet: 'Over 0.5 HT',
+    odd: '1.25',
+    score: '',
+    outcome: ''
+  },
+  {
     id: 2,
-    startAt: '2023-11-17T16:00:00+00:00',
-    awayTeamName: "Cyprus U21 vs Bosnia",
-    homeTeamName: "Herzegovina U21",
+    startAt: '2023-11-18T13:30:00+00:00',
+    awayTeamName: "Malta (u19)",
+    homeTeamName: "Slovakia (u19)",
     bet: '1',
-    odd: '1.91',
+    odd: '1.25',
     score: '',
     outcome: ''
   },
   {
     id: 3,
-    startAt: '2023-11-17T17:00:00+00:00',
-    awayTeamName: "Norway U21",
-    homeTeamName: "Ireland U21",
+    startAt: '2023-11-18T14:00:00+00:00',
+    awayTeamName: "Jong Sparta Rotterdam (NED Tweede Divisie)",
+    homeTeamName: "Spakenburg",
     bet: '1',
-    odd: '1.61',
+    odd: '1.63',
     score: '',
     outcome: ''
   },
   {
     id: 4,
-    startAt: '2023-11-17T17:30:00+00:00',
-    awayTeamName: "Austria U21",
-    homeTeamName: "France U21",
-    bet: '2',
-    odd: '1.59',
+    startAt: '2023-11-18T15:00:00+00:00',
+    awayTeamName: "Flyde AFC (ENG National League)",
+    homeTeamName: "Bromley",
+    bet: 'Over 0.5 HT',
+    odd: '1.33',
     score: '',
     outcome: ''
   }
