@@ -7,12 +7,12 @@
                 <section class="mb-32 text-center md:text-left">
                     <h2 class="mb-12 text-center text-3xl font-bold">Latest articles</h2>
 
-                    <a :href="article.url" target="_blank" class="mb-6 md:my-8 flex flex-wrap" v-for="(article, index) of articles" :key="index">
+                    <a :href="article.url" target="_blank" class="mb-6 md:my-8 flex flex-wrap"
+                        v-for="(article, index) of articles" :key="index">
                         <div class="mb-6 ml-auto w-full shrink-0 grow-0 basis-auto px-3 md:mb-0 md:w-3/12">
                             <div class="relative mb-6 overflow-hidden rounded-lg bg-cover bg-no-repeat shadow-lg dark:shadow-black/20"
                                 data-te-ripple-init data-te-ripple-color="light">
-                                <img :src="article.urlToImage" class="w-full"
-                                    :alt="article.description" />
+                                <img :src="article.urlToImage" class="w-full" :alt="article.description" />
                                 <a href="#!">
                                     <div
                                         class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100 bg-[hsla(0,0%,98.4%,.15)]">
@@ -33,11 +33,11 @@
                                 {{ article.source.name }}
                             </div>
                             <p class="mb-6 text-neutral-500 dark:text-neutral-300">
-                                <small>Published <u>{{ new Date(article.publishedAt)}}</u> by
+                                <small>Published <u>{{ new Date(article.publishedAt) }}</u> by
                                     <a href="#!">{{ article.author }}</a></small>
                             </p>
                             <p class="text-neutral-500 dark:text-neutral-300" :innerHTML="article.content">
-                                
+
                             </p>
                         </div>
                     </a>
@@ -52,6 +52,9 @@
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
+// import Guardian from 'guardian-js';
+
+// const guardian = new Guardian("XXXXX", false);
 
 const getFirstDayOfMonth = () => {
     // Get the current date
@@ -59,19 +62,17 @@ const getFirstDayOfMonth = () => {
 
     // Set the date to the first day of the month
     currentDate.setDate(1);
-    console.log(currentDate, "DATTE");
     return currentDate;
 }
 
-const articles = ref([ ]);
+const articles = ref([]);
 const getNews = async () => {
     try {
-        const {data, status} = await axios.get("https://newsapi.org/v2/everything?apiKey=84776bf056dd46c8b502b179ae815c1f&q=EPL");
-        console.log(data, "DATA")
+        const { data, status } = await axios.get("https://newsapi.org/v2/everything?apiKey=XXXXXX=EPL");
         if (status === 200) {
             const currentDate = getFirstDayOfMonth();
             articles.value = data.articles.filter(i => new Date(i.publishedAt) > new Date(currentDate));
-            
+
         } else {
             alert("An error occurred while fetching articles, please reload")
         }
@@ -79,6 +80,19 @@ const getNews = async () => {
         console.log(error);
     }
 }
+
+// const getGuardianNews = async () => {
+//     try {
+//         const data = await guardian.content.search('English Premier League');
+//         console.log(data, "DATUM")
+//         if (data.status === 'ok') {
+//             const res = await guardian.item.getById(data.results[0].id);
+//             console.log(res, "RESPONSE")
+//         }
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
 getNews();
 </script>
