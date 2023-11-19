@@ -83,8 +83,8 @@ const manualTips = [
     homeTeamName: "Holstebro BK",
     bet: 'Over 0.5 HT',
     odd: '1.25',
-    score: '',
-    outcome: ''
+    score: '1-2',
+    outcome: '✔️'
   },
   {
     id: 2,
@@ -93,8 +93,8 @@ const manualTips = [
     homeTeamName: "Slovakia (u19)",
     bet: '1',
     odd: '1.25',
-    score: '',
-    outcome: ''
+    score: '3-1',
+    outcome: '✔️'
   },
   {
     id: 3,
@@ -103,8 +103,8 @@ const manualTips = [
     homeTeamName: "Spakenburg",
     bet: '1',
     odd: '1.63',
-    score: '',
-    outcome: ''
+    score: '1-0',
+    outcome: '✔️'
   },
   {
     id: 4,
@@ -113,8 +113,8 @@ const manualTips = [
     homeTeamName: "Bromley",
     bet: 'Over 0.5 HT',
     odd: '1.33',
-    score: '',
-    outcome: ''
+    score: '1-0',
+    outcome: 'x'
   }
 ]
 
