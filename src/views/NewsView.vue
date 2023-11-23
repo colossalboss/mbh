@@ -105,20 +105,6 @@ const guardian = new Guardian("XXXXXX", false);
 
 // const articles = ref([]);
 const news = ref([]);
-// const getNews = async () => {
-//     try {
-//         const { data, status } = await axios.get("https://newsapi.org/v2/everything?apiKey=XXXXXXXX&q=EPL");
-//         if (status === 200) {
-//             const currentDate = getFirstDayOfMonth();
-//             articles.value = data.articles.filter(i => new Date(i.publishedAt) > new Date(currentDate));
-
-//         } else {
-//             alert("An error occurred while fetching articles, please reload")
-//         }
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
 
 const getGuardianNews = async () => {
     try {
