@@ -78,43 +78,45 @@ const isHistoryPage = route.path === "/history";
 const manualTips = [
   {
     id: 4,
-    startAt: '2023-11-18T12:00:00+00:00',
-    awayTeamName: "VSK Aarhus (DEN Division 3)",
-    homeTeamName: "Holstebro BK",
-    bet: 'Over 0.5 HT',
-    odd: '1.25',
-    score: '1-2',
-    outcome: '✔️'
-  },
-  {
-    id: 2,
-    startAt: '2023-11-18T13:30:00+00:00',
-    awayTeamName: "Malta (u19)",
-    homeTeamName: "Slovakia (u19)",
-    bet: '1',
-    odd: '1.25',
-    score: '3-1',
-    outcome: '✔️'
-  },
-  {
-    id: 3,
-    startAt: '2023-11-18T14:00:00+00:00',
-    awayTeamName: "Jong Sparta Rotterdam (NED Tweede Divisie)",
-    homeTeamName: "Spakenburg",
-    bet: '1',
-    odd: '1.63',
-    score: '1-0',
-    outcome: '✔️'
+    startAt: '2023-11-24T17:10:00+00:00',
+    awayTeamName: "Horn (Austria 2. Liga)",
+    homeTeamName: "St. Polten",
+    bet: 'Over 0.5 Goals HT',
+    odd: '1.26',
+    score: '',
+    outcome: ''
+    // outcome: '✔️'
   },
   {
     id: 4,
-    startAt: '2023-11-18T15:00:00+00:00',
-    awayTeamName: "Flyde AFC (ENG National League)",
-    homeTeamName: "Bromley",
-    bet: 'Over 0.5 HT',
-    odd: '1.33',
-    score: '1-0',
-    outcome: 'x'
+    startAt: '2023-11-24T18:00:00+00:00',
+    awayTeamName: "Naestved (DEN Division 1)",
+    homeTeamName: "SonderjyskE",
+    bet: 'SonderjyskE',
+    odd: '1.24',
+    score: '',
+    outcome: ''
+    // outcome: '✔️'
+  },
+  {
+    id: 2,
+    startAt: '2023-11-24T19:00:00+00:00',
+    awayTeamName: "FC Den Bosch (NED Eerste Divisie)",
+    homeTeamName: "NAC Breda",
+    bet: 'Over 0.5 Goals HT',
+    odd: '1.19',
+    score: '',
+    outcome: ''
+  },
+  {
+    id: 2,
+    startAt: '2023-11-24T19:45:00+00:00',
+    awayTeamName: "Glentoran (Northern Ireland - Premiership)",
+    homeTeamName: "Larne",
+    bet: 'Larne',
+    odd: '2.20',
+    score: '',
+    outcome: ''
   }
 ]
 

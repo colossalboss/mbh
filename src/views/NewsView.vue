@@ -92,7 +92,7 @@
 import { ref } from 'vue';
 import Guardian from 'guardian-js';
 
-const guardian = new Guardian("XXXXXX", false);
+const guardian = new Guardian("387db467-0d02-4dfa-99d2-60ece23a3710", false);
 
 // const getFirstDayOfMonth = () => {
 //     // Get the current date
