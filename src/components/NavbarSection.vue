@@ -1,77 +1,67 @@
 <template>
     <div class="py-4 bg-regalblue">
-        <div class="w-full flex justify-between items-center pr-4">
-            <router-link to="/" class="p-4 text-lg font-bold text-white" style="font-size: 28px;">MyBetHaven</router-link>
-            <div class="flex items-center">
-                <!-- Instagram -->
-                <router-link to="/news" class="text-white flex items-center font-semibold text-lg p-2 mx-1 justify-center ">
-                    Football News
-                </router-link>
+        <header>
+            <nav class="border-gray-200 dark:bg-gray-900">
+                <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+                    <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <svg width="49" height="15" viewBox="0 0 49 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.56 15V13.94H1.4C1.58667 13.94 1.75333 13.9133 1.9 13.86C2.06 13.8067 2.18667 13.6933 2.28 13.52C2.37333 13.3467 2.42 13.0867 2.42 12.74V3C2.42 2.64 2.37333 2.37333 2.28 2.2C2.18667 2.02667 2.06 1.91333 1.9 1.86C1.75333 1.80667 1.58667 1.78 1.4 1.78H0.56V0.719999H6.32L9.64 10.38L12.82 0.719999H18.48V1.78H17.64C17.4533 1.78 17.28 1.81333 17.12 1.88C16.96 1.93333 16.8333 2.05333 16.74 2.24C16.66 2.41333 16.62 2.69333 16.62 3.08V12.64C16.62 13.0133 16.66 13.2933 16.74 13.48C16.8333 13.6667 16.96 13.7933 17.12 13.86C17.28 13.9133 17.4533 13.94 17.64 13.94H18.48V15H12.08V13.94H12.28C12.56 13.94 12.7933 13.9133 12.98 13.86C13.1667 13.8067 13.3067 13.7 13.4 13.54C13.4933 13.38 13.54 13.14 13.54 12.82V2.7L9.5 15H8.14L3.92 2.7V12.64C3.92 13.0133 3.97333 13.2933 4.08 13.48C4.2 13.6667 4.37333 13.7933 4.6 13.86C4.82667 13.9133 5.09333 13.94 5.4 13.94H5.52V15H0.56ZM19.603 15V13.94H20.423C20.623 13.94 20.7963 13.9133 20.943 13.86C21.103 13.7933 21.2296 13.6667 21.323 13.48C21.4163 13.2933 21.463 13.0133 21.463 12.64V3.06C21.463 2.7 21.4163 2.43333 21.323 2.26C21.2296 2.07333 21.103 1.94667 20.943 1.88C20.783 1.81333 20.6096 1.78 20.423 1.78H19.603V0.719999H25.443C27.3496 0.719999 28.7763 1.01333 29.723 1.6C30.683 2.18667 31.163 3.10667 31.163 4.36C31.163 4.94667 31.0563 5.44 30.843 5.84C30.6296 6.22667 30.3363 6.54667 29.963 6.8C29.5896 7.04 29.1496 7.24 28.643 7.4V7.5C29.2563 7.64667 29.7963 7.88 30.263 8.2C30.7296 8.52 31.0963 8.92 31.363 9.4C31.6296 9.86667 31.763 10.4267 31.763 11.08C31.763 12.3867 31.283 13.3667 30.323 14.02C29.363 14.6733 27.9363 15 26.043 15H19.603ZM25.943 13.78C26.8363 13.78 27.4696 13.5733 27.843 13.16C28.2163 12.7467 28.403 12.0333 28.403 11.02C28.403 10.3667 28.3296 9.82667 28.183 9.4C28.0363 8.97333 27.783 8.66 27.423 8.46C27.0763 8.24667 26.5963 8.14 25.983 8.14H24.623V13.78H25.943ZM25.383 6.92C26.0096 6.92 26.4963 6.83333 26.843 6.66C27.1896 6.48667 27.4363 6.21333 27.583 5.84C27.7296 5.45333 27.803 4.96 27.803 4.36C27.803 3.45333 27.6163 2.82667 27.243 2.48C26.883 2.12 26.2496 1.94 25.343 1.94H24.623V6.92H25.383ZM33.0405 15V13.94H33.8805C34.0671 13.94 34.2338 13.9133 34.3805 13.86C34.5405 13.7933 34.6671 13.6667 34.7605 13.48C34.8538 13.2933 34.9005 13.0133 34.9005 12.64V3C34.9005 2.64 34.8538 2.37333 34.7605 2.2C34.6671 2.02667 34.5405 1.91333 34.3805 1.86C34.2338 1.80667 34.0671 1.78 33.8805 1.78H33.0405V0.719999H39.9405V1.78H39.0805C38.8938 1.78 38.7205 1.81333 38.5605 1.88C38.4138 1.93333 38.2938 2.05333 38.2005 2.24C38.1071 2.41333 38.0605 2.69333 38.0605 3.08V6.94H43.2805V3.08C43.2805 2.69333 43.2338 2.41333 43.1405 2.24C43.0471 2.05333 42.9205 1.93333 42.7605 1.88C42.6138 1.81333 42.4471 1.78 42.2605 1.78H41.4005V0.719999H48.3005V1.78H47.4605C47.2738 1.78 47.1005 1.81333 46.9405 1.88C46.7938 1.93333 46.6738 2.05333 46.5805 2.24C46.4871 2.41333 46.4405 2.69333 46.4405 3.08V12.74C46.4405 13.0867 46.4871 13.3467 46.5805 13.52C46.6738 13.6933 46.8005 13.8067 46.9605 13.86C47.1205 13.9133 47.2871 13.94 47.4605 13.94H48.3005V15H41.4005V13.94H42.2605C42.4471 13.94 42.6138 13.9133 42.7605 13.86C42.9205 13.7933 43.0471 13.6667 43.1405 13.48C43.2338 13.2933 43.2805 13.0133 43.2805 12.64V8.16H38.0605V12.64C38.0605 13.0133 38.1071 13.2933 38.2005 13.48C38.2938 13.6667 38.4138 13.7933 38.5605 13.86C38.7205 13.9133 38.8938 13.94 39.0805 13.94H39.9405V15H33.0405Z"
+                                fill="white" />
+                        </svg>
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">MyBetHaven</span>
+                    </a>
+                    <button data-collapse-toggle="navbar-default" type="button"
+                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        aria-controls="navbar-default" aria-expanded="false" @click="showLinks = !showLinks">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 17 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 1h15M1 7h15M1 13h15" />
+                        </svg>
+                    </button>
+                    <div class="w-full md:block md:w-auto" id="navbar-default" :class="{ 'hidden': !showLinks }">
+                        <ul
+                            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-regalblue dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                            <li>
+                                <router-link to="/" @click="showLinks = !showLinks"
+                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:text-white">Home</router-link>
+                            </li>
 
-                <!-- Instagram -->
-                <router-link to="/history" class="text-white flex items-center font-semibold text-lg p-2 mx-1 justify-center ">
-                    History
-                </router-link>
+                            <li>
+                                <router-link to="/history" @click="showLinks = !showLinks"
+                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:text-white">History</router-link>
+                            </li>
 
-                <!-- Instagram -->
-                <a href="#" class="bg-white flex items-center mx-1 justify-center rounded" style="height: 25px;width: 24px">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M16.4432 4.93864C16.4432 5.70147 15.8248 6.31987 15.0619 6.31987C14.2991 6.31987 13.6807 5.70147 13.6807 4.93864C13.6807 4.1758 14.2991 3.5574 15.0619 3.5574C15.8248 3.5574 16.4432 4.1758 16.4432 4.93864Z"
-                            fill="#244D4D" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M9.99738 14.6073C12.5402 14.6073 14.6015 12.546 14.6015 10.0032C14.6015 7.46039 12.5402 5.39905 9.99738 5.39905C7.45457 5.39905 5.39322 7.46039 5.39322 10.0032C5.39322 12.546 7.45457 14.6073 9.99738 14.6073ZM9.99738 12.7656C11.5231 12.7656 12.7599 11.5288 12.7599 10.0032C12.7599 8.4775 11.5231 7.2407 9.99738 7.2407C8.47169 7.2407 7.23488 8.4775 7.23488 10.0032C7.23488 11.5288 8.47169 12.7656 9.99738 12.7656Z"
-                            fill="#244D4D" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M0.789062 9.63484C0.789062 6.54058 0.789062 4.99345 1.39125 3.8116C1.92095 2.77201 2.76617 1.9268 3.80576 1.39711C4.98762 0.794922 6.53476 0.794922 9.62904 0.794922H10.3657C13.46 0.794922 15.0071 0.794922 16.189 1.39711C17.2286 1.9268 18.0738 2.77201 18.6035 3.8116C19.2057 4.99345 19.2057 6.54058 19.2057 9.63484V10.3715C19.2057 13.4658 19.2057 15.0129 18.6035 16.1948C18.0738 17.2343 17.2286 18.0795 16.189 18.6092C15.0071 19.2114 13.46 19.2114 10.3657 19.2114H9.62904C6.53476 19.2114 4.98762 19.2114 3.80576 18.6092C2.76617 18.0795 1.92095 17.2343 1.39125 16.1948C0.789062 15.0129 0.789062 13.4658 0.789062 10.3715V9.63484ZM9.62904 2.63657H10.3657C11.9432 2.63657 13.0156 2.638 13.8445 2.70573C14.652 2.7717 15.0649 2.89127 15.3529 3.03803C16.046 3.39116 16.6094 3.95463 16.9626 4.64769C17.1093 4.93572 17.2289 5.34863 17.2949 6.15604C17.3626 6.98494 17.364 8.05732 17.364 9.63484V10.3715C17.364 11.949 17.3626 13.0214 17.2949 13.8503C17.2289 14.6577 17.1093 15.0706 16.9626 15.3587C16.6094 16.0517 16.046 16.6152 15.3529 16.9683C15.0649 17.1151 14.652 17.2346 13.8445 17.3006C13.0156 17.3683 11.9432 17.3698 10.3657 17.3698H9.62904C8.05151 17.3698 6.97912 17.3683 6.15021 17.3006C5.3428 17.2346 4.92989 17.1151 4.64186 16.9683C3.94879 16.6152 3.38532 16.0517 3.03218 15.3587C2.88542 15.0706 2.76585 14.6577 2.69988 13.8503C2.63216 13.0214 2.63073 11.949 2.63073 10.3715V9.63484C2.63073 8.05732 2.63216 6.98494 2.69988 6.15604C2.76585 5.34863 2.88542 4.93572 3.03218 4.64769C3.38532 3.95463 3.94879 3.39116 4.64186 3.03803C4.92989 2.89127 5.3428 2.7717 6.15021 2.70573C6.97912 2.638 8.05151 2.63657 9.62904 2.63657Z"
-                            fill="#244D4D" />
-                    </svg>
-                </a>
+                            <li>
+                                <router-link to="/news" @click="showLinks = !showLinks"
+                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:text-white">News</router-link>
+                            </li>
 
-                <!-- Linkedin -->
-                <a href="#" class="bg-white flex items-center mx-1 justify-center rounded" style="height: 25px;width: 24px">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M5.23184 3.02088C5.23184 4.25025 4.23729 5.24685 3.01045 5.24685C1.78361 5.24685 0.789062 4.25025 0.789062 3.02088C0.789062 1.79152 1.78361 0.794922 3.01045 0.794922C4.23729 0.794922 5.23184 1.79152 5.23184 3.02088Z"
-                            fill="#244D4D" />
-                        <path d="M1.09284 6.88302H4.89008V19.2114H1.09284V6.88302Z" fill="#244D4D" />
-                        <path
-                            d="M11.0036 6.88302H7.2064V19.2114H11.0036C11.0036 19.2114 11.0036 15.3303 11.0036 12.9036C11.0036 11.4471 11.4678 9.98415 13.32 9.98415C15.4131 9.98415 15.4005 11.8903 15.3907 13.3669C15.378 15.2972 15.4084 17.267 15.4084 19.2114H19.2057V12.7048C19.1735 8.55008 18.1631 6.63569 14.8389 6.63569C12.8647 6.63569 11.641 7.59595 11.0036 8.46473V6.88302Z"
-                            fill="#244D4D" />
-                    </svg>
+                            <li>
+                                <router-link to="/about" @click="showLinks = !showLinks"
+                                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:text-white">About</router-link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
 
-                </a>
-
-                <!-- Facebook -->
-                <a href="#" class="bg-white flex items-center mx-1 justify-center rounded" style="height: 25px;width: 24px">
-                    <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8.69304 9.49428L9.13354 6.69535H6.37786V4.87984C6.37786 4.11393 6.7621 3.36691 7.99636 3.36691H9.25V0.984038C9.25 0.984038 8.11278 0.794922 7.02602 0.794922C4.75551 0.794922 3.27285 2.13574 3.27285 4.56212V6.69535H0.75V9.49428H3.27285V19.2114H6.37786V9.49428H8.69304Z"
-                            fill="#244D4D" />
-                    </svg>
-
-                </a>
-
-                <!-- twitter -->
-                <a href="#" class="bg-white flex items-center mx-1 justify-center rounded" style="height: 25px;width: 24px">
-                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M6.56974 15.7886C4.44196 15.7886 2.45851 15.1511 0.789062 14.0511C2.20648 14.1456 4.7079 13.9193 6.26379 12.3905C3.92323 12.2799 2.86768 10.4308 2.73 9.64052C2.92887 9.71955 3.87733 9.81437 4.41276 9.59311C1.72035 8.8977 1.30731 6.46376 1.3991 5.72094C1.90392 6.08445 2.7606 6.21089 3.09715 6.17928C0.588317 4.33012 1.49088 1.54848 1.93452 0.947902C3.73495 3.51736 6.43323 4.96046 9.77136 5.04073C9.70843 4.75638 9.67519 4.46033 9.67519 4.15627C9.67519 1.97409 11.3874 0.205078 13.4996 0.205078C14.6032 0.205078 15.5976 0.688 16.2957 1.46046C17.0331 1.28244 18.143 0.865729 18.6856 0.505369C18.4121 1.51687 17.5606 2.36068 17.0456 2.67342C17.0414 2.66273 17.0499 2.68406 17.0456 2.67342C17.498 2.60293 18.7221 2.36059 19.2057 2.02263C18.9665 2.59088 18.0639 3.5357 17.3231 4.06465C17.4609 10.3263 12.8102 15.7886 6.56974 15.7886Z"
-                            fill="#244D4D" />
-                    </svg>
-
-                </a>
-            </div>
-        </div>
+        </header>
     </div>
 </template>
   
 <script>
 
 export default {
-    components: {
 
+    data() {
+        return {
+            showLinks: false
+        }
     }
+
 }
 </script>
   
