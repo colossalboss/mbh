@@ -43,8 +43,17 @@ const routes = [
     component: () => import(/* webpackChunkName: "privacy" */ '../views/PrivacyPolicyView.vue'),
     meta: {
       title: 'MBH - Privacy Policy'
-    }
-  }
+    },
+
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'PageNotFound',
+    component: () => import(/* webpackChunkName: "privacy" */ '../views/PageNotFound.vue'),
+    meta: {
+      title: 'MBH - 404 Not Found'
+    },
+  },
 ]
 
 const router = createRouter({
@@ -62,9 +71,9 @@ router.beforeEach((to, from, next) => {
 
   // If a route with a title was found, set the document (page) title to that value.
   if (nearestWithTitle) {
-      document.title = nearestWithTitle.meta.title;
+    document.title = nearestWithTitle.meta.title;
   } else if (previousNearestWithMeta) {
-      document.title = previousNearestWithMeta.meta.title;
+    document.title = previousNearestWithMeta.meta.title;
   }
 
   // Remove any stale meta tags from the document using the key attribute we set below.
@@ -75,19 +84,19 @@ router.beforeEach((to, from, next) => {
 
   // Turn the meta tag definitions into actual elements in the head.
   nearestWithMeta.meta.metaTags.map(tagDef => {
-          const tag = document.createElement('meta');
+    const tag = document.createElement('meta');
 
-          Object.keys(tagDef).forEach(key => {
-              tag.setAttribute(key, tagDef[key]);
-          });
+    Object.keys(tagDef).forEach(key => {
+      tag.setAttribute(key, tagDef[key]);
+    });
 
-          // We use this to track which meta tags we create so we don't interfere with other ones.
-          tag.setAttribute('data-vue-router-controlled', '');
+    // We use this to track which meta tags we create so we don't interfere with other ones.
+    tag.setAttribute('data-vue-router-controlled', '');
 
-          return tag;
-      })
-      // Add the meta tags to the document head.
-      .forEach(tag => document.head.appendChild(tag));
+    return tag;
+  })
+    // Add the meta tags to the document head.
+    .forEach(tag => document.head.appendChild(tag));
 })
 
 export default router
